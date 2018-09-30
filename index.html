@@ -18,41 +18,16 @@
 		<button class="button" id="restart">Restart</button>
 	</div>
 	<div>
-		<p>
+		<p id="carousel-index">
 		  Zobacz:
-		  <a href="#carousel-cell1">Zdjęcie 1</a>,
-		  <a href="#carousel-cell2">Zdjęcie 2</a>,
-		  <a href="#carousel-cell3">Zdjęcie 3</a>,
-		  <a href="#carousel-cell4">Zdjęcie 4</a>,
-		  <a href="#carousel-cell5">Zdjęcie 5</a>
+		  <a href="#carousel-cell1" data-index="1">Zdjęcie 1</a>,
+		  <a href="#carousel-cell2" data-index="2">Zdjęcie 2</a>,
+		  <a href="#carousel-cell3" data-index="3">Zdjęcie 3</a>,
+		  <a href="#carousel-cell4" data-index="4">Zdjęcie 4</a>,
+		  <a href="#carousel-cell5" data-index="5">Zdjęcie 5</a>
 		</p>
 	</div>
-	<div class="main-carousel" data-flickity='{ "hash": true }'>
-	  <div class="carousel-cell image1" id="carousel-cell1">
-	  	<div class="container">
-	  		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ex augue, dictum at magna quis, sodales condimentum turpis.</p>
-	  	</div>
-	  </div>
-	  <div class="carousel-cell image2" id="carousel-cell2">
-	  	<div class="container">
-	  		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ex augue, dictum at magna quis, sodales condimentum turpis.</p>
-	  	</div>
-	  </div>
-	  <div class="carousel-cell image3" id="carousel-cell3">
-	  	<div class="container">
-	  		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ex augue, dictum at magna quis, sodales condimentum turpis.</p>
-	  	</div>
-	  </div>
-	  <div class="carousel-cell image4" id="carousel-cell4">
-	  	<div class="container">
-	  		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ex augue, dictum at magna quis, sodales condimentum turpis.</p>
-	  	</div>
-	  </div>
-	  <div class="carousel-cell image5" id="carousel-cell5">
-	  	<div class="container">
-	  		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ex augue, dictum at magna quis, sodales condimentum turpis.</p>
-	  	</div>
-	  </div>
+	<div class="main-carousel" data-flickity='{ "hash": true }'>  
   	</div>
   	<div class="progress-bar"></div>
 		
@@ -61,6 +36,25 @@
   
 	<script src="vendor/flickity.pkgd.min.js"></script>
 	<script src="https://unpkg.com/flickity-hash@1/hash.js"></script>
+	<script src="node_modules/mustache/mustache.min.js"></script>
+    <script id="template-carousel" type="x-tmpl-mustache">
+    	<div class="carousel-cell image1" id="carousel-cell1">
+	  		<div class="container">
+	  			<h2>{{ title }}</h2>
+				<p>{{ description }}</p>
+				{{{ image }}}
+			</div>
+		</div>
+    </script>
+    <script>
+    	var carouselData = [
+    	{image: '<img src="https://images.unsplash.com/photo-1536650135175-9b3cd4f36cff?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3bcc987e3db51c7d41749ade58c9cb19&auto=format&fit=crop&w=500&q=60" alt="#">', title: 'Zdjęcie nr 1', description: 'Lorem ipsum dolores set amore', coords: {lat: 52.463692, lng: 16.903341}},
+    	{image: '<img src="https://images.unsplash.com/photo-1519406709381-c1f293304b28?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=98c497a29f229085d9574ee8b6eeef8c&auto=format&fit=crop&w=500&q=60" alt="#">', title: 'Zdjęcie nr 2', description: 'Lorem ipsum dictum at magna', coords: {lat: 52.248403, lng: 21.000239}},
+    	{image: '<img src="https://images.unsplash.com/photo-1506171704646-9299e07efb04?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c4b32ff83521e06ac2c9ddfe91589419&auto=format&fit=crop&w=500&q=60" alt="#">', title: 'Zdjęcie nr 3', description: 'Lorem ipsum adipiscing elit', coords: {lat: 54.554385, lng: 18.482582}},
+    	{image: '<img src="https://images.unsplash.com/photo-1509399693673-755307bfc4e1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=65e1b39f8c4efb9a7a0f2714b6302092&auto=format&fit=crop&w=500&q=60" alt="#">', title: 'Zdjęcie nr 4', description: 'Lorem ipsum magna quis sodales', coords: {lat: 50.019254, lng: 19.923964}},
+    	{image: '<img src="https://images.unsplash.com/photo-1502230831726-fe5549140034?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b321368c723c1e4bd30a63f9edd0b8d9&auto=format&fit=crop&w=500&q=60" alt="#">', title: 'Zdjęcie nr 5', description: 'Lorem ipsum condimentum turpis consectetur', coords: {lat: 51.113592, lng: 16.997086}}
+    	];
+    </script>
     <script src="js/script.js"></script>
 </body>
 
