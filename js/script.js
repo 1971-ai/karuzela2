@@ -20,10 +20,12 @@ restart.addEventListener('click', function(){
 });
 var carouselIndex = document.querySelectorAll("#carousel-index a");
 for(var i = 0; i < carouselIndex.length; i++){
-	carouselIndex[i].addEventListener('click', function(e){
-		e.preventDefault();
-    	flkty.select(+carouselIndex[i].getAttribute('data-index'));
-	});
+  (function(i) {
+  	carouselIndex[i].addEventListener('click', function(e){
+  		e.preventDefault();
+      flkty.select(+carouselIndex[i - 1].getAttribute('data-index'));
+  	});
+  })(i);
 }
 
 var progressBar = document.querySelector('.progress-bar')
