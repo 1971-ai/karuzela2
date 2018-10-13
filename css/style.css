@@ -11,3 +11,7 @@
 .progress-bar { height: 20px; width: 0; background: #333; }
 
 .flickity-page-dots { bottom: -40px; }
+
+.container-map { max-width: 400px; margin: 0 auto; }
+
+#map { height: 50vh; width: 100%; }

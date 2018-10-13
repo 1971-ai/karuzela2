@@ -34,3 +34,24 @@ flkty.on( 'scroll', function( progress ) {
   progress = Math.max( 0, Math.min( 1, progress ) );
   progressBar.style.width = progress * 100 + '%';
 });
+window.initMap = function() {
+  var coords = {lat: 52.463692, lng: 16.903341};
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 4,
+        center: coords
+      });
+  for(var i = 0; i < markers.length; i++){
+    addMarker(carouselData[i]);
+  }
+  function addMarker(data){
+  var marker = new google.maps.Marker({
+    position: data.coords,
+    map: map
+  });
+  marker.addListener('click', function(){
+    flkty.select(data.index);
+  });
+
+}
+
+}

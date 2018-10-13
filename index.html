@@ -30,6 +30,10 @@
 	<div class="main-carousel" data-flickity='{ "hash": true }'>  
   	</div>
   	<div class="progress-bar"></div>
+  	<div id="page-wrapper" class="container-map">
+		<h3>Mapa Google</h3>
+			<div id="map"></div>
+	</div>
 		
   
   
@@ -48,14 +52,34 @@
     </script>
     <script>
     	var carouselData = [
-    	{image: '<img src="https://images.unsplash.com/photo-1536650135175-9b3cd4f36cff?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3bcc987e3db51c7d41749ade58c9cb19&auto=format&fit=crop&w=500&q=60" alt="#">', title: 'Zdjęcie nr 1', description: 'Lorem ipsum dolores set amore', coords: {lat: 52.463692, lng: 16.903341}},
-    	{image: '<img src="https://images.unsplash.com/photo-1519406709381-c1f293304b28?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=98c497a29f229085d9574ee8b6eeef8c&auto=format&fit=crop&w=500&q=60" alt="#">', title: 'Zdjęcie nr 2', description: 'Lorem ipsum dictum at magna', coords: {lat: 52.248403, lng: 21.000239}},
-    	{image: '<img src="https://images.unsplash.com/photo-1506171704646-9299e07efb04?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c4b32ff83521e06ac2c9ddfe91589419&auto=format&fit=crop&w=500&q=60" alt="#">', title: 'Zdjęcie nr 3', description: 'Lorem ipsum adipiscing elit', coords: {lat: 54.554385, lng: 18.482582}},
-    	{image: '<img src="https://images.unsplash.com/photo-1509399693673-755307bfc4e1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=65e1b39f8c4efb9a7a0f2714b6302092&auto=format&fit=crop&w=500&q=60" alt="#">', title: 'Zdjęcie nr 4', description: 'Lorem ipsum magna quis sodales', coords: {lat: 50.019254, lng: 19.923964}},
-    	{image: '<img src="https://images.unsplash.com/photo-1502230831726-fe5549140034?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b321368c723c1e4bd30a63f9edd0b8d9&auto=format&fit=crop&w=500&q=60" alt="#">', title: 'Zdjęcie nr 5', description: 'Lorem ipsum condimentum turpis consectetur', coords: {lat: 51.113592, lng: 16.997086}}
+    	{image: '<img src="https://images.unsplash.com/photo-1536650135175-9b3cd4f36cff?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3bcc987e3db51c7d41749ade58c9cb19&auto=format&fit=crop&w=500&q=60" alt="#">', title: 'Zdjęcie nr 1', description: 'Lorem ipsum dolores set amore', coords: {lat: 52.463692, lng: 16.903341}, index: 0},
+    	{image: '<img src="https://images.unsplash.com/photo-1519406709381-c1f293304b28?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=98c497a29f229085d9574ee8b6eeef8c&auto=format&fit=crop&w=500&q=60" alt="#">', title: 'Zdjęcie nr 2', description: 'Lorem ipsum dictum at magna', coords: {lat: 52.248403, lng: 21.000239}, index: 1},
+    	{image: '<img src="https://images.unsplash.com/photo-1506171704646-9299e07efb04?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c4b32ff83521e06ac2c9ddfe91589419&auto=format&fit=crop&w=500&q=60" alt="#">', title: 'Zdjęcie nr 3', description: 'Lorem ipsum adipiscing elit', coords: {lat: 54.554385, lng: 18.482582}, index: 2},
+    	{image: '<img src="https://images.unsplash.com/photo-1509399693673-755307bfc4e1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=65e1b39f8c4efb9a7a0f2714b6302092&auto=format&fit=crop&w=500&q=60" alt="#">', title: 'Zdjęcie nr 4', description: 'Lorem ipsum magna quis sodales', coords: {lat: 50.019254, lng: 19.923964}, index: 3},
+    	{image: '<img src="https://images.unsplash.com/photo-1502230831726-fe5549140034?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b321368c723c1e4bd30a63f9edd0b8d9&auto=format&fit=crop&w=500&q=60" alt="#">', title: 'Zdjęcie nr 5', description: 'Lorem ipsum condimentum turpis consectetur', coords: {lat: 51.113592, lng: 16.997086}, index: 4}
     	];
     </script>
+    <script>
+    	var markers = [
+    	{
+    		coords: {lat: 52.463692, lng: 16.903341}
+    	},
+    	{
+    		coords: {lat: 52.248403, lng: 21.000239}
+    	},
+    	{
+    		coords: {lat: 54.554385, lng: 18.482582}
+    	},
+    	{
+    		coords: {lat: 50.019254, lng: 19.923964}
+    	},
+    	{
+    		coords: {lat: 51.113592, lng: 16.997086}
+    	}
+    	];
+	</script>
     <script src="js/script.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClnjRYb-81cbnhxbahwzm8JuP6pBZFzRg&callback=initMap"></script>
 </body>
 
 </html>
